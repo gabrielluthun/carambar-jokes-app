@@ -28,7 +28,7 @@ app.listen(PORT, () => {
 });
 
 //Servir le fichier index.html
-app.get('/api', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
