@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carambar Jokes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        .joke {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Bienvenue chez Carambar & co</h1>
+    <button id="jokeButton">Obtenir une blague</button>
+    <div class="joke" id="joke"></div>
+
+    <script>
+        document.getElementById('jokeButton').addEventListener('click', async () => {
+            const response = await fetch('/api/jokes/random');
+            const joke = await response.json();
+            document.getElementById('joke').innerText = `${joke.question}\n\n${joke.answer}`;
+        });
+    </script>
+</body>
+
+</html>
